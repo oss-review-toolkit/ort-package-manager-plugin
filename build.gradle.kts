@@ -17,14 +17,61 @@
  * License-Filename: LICENSE
  */
 
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
+import org.jetbrains.gradle.ext.GradleTask
+import org.jetbrains.gradle.ext.JarApplication
+import org.jetbrains.gradle.ext.runConfigurations
+import org.jetbrains.gradle.ext.settings
 import org.jetbrains.kotlin.gradle.plugin.KotlinCompilation
 
 plugins {
+    alias(libs.plugins.ideaExt)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.shadow)
 }
 
 repositories {
     mavenCentral()
+}
+
+configurations{
+    // Create a scope that contains the minimum dependencies to run the plugin with ORT.
+    dependencyScope("analyzerCliClasspath")
+}
+
+dependencies {
+    "analyzerCliClasspath"(libs.ortAnalyzerCommand)
+    "analyzerCliClasspath"(libs.ortCli)
+}
+
+val shadowJar = tasks.named<ShadowJar>("shadowJar") {
+    archiveClassifier = "analyzer-cli"
+
+    // Extend the "runtimeClasspath", which is the configuration that "Shadow" uses by default, with the classpath for
+    // the ORT main CLI and the analyter command.
+    project.configurations["runtimeClasspath"].extendsFrom(project.configurations["analyzerCliClasspath"])
+
+    manifest.attributes["Main-Class"] = "org.ossreviewtoolkit.cli.OrtMainKt"
+}
+
+idea {
+    project {
+        settings {
+            runConfigurations {
+                create<JarApplication>("ORT Analyzer CLI Template") {
+                    beforeRun {
+                        create("Build Shadow JAR", GradleTask::class) {
+                            task = shadowJar.get()
+                        }
+                    }
+
+                    jarPath = shadowJar.get().outputs.files.singleFile.path
+                    programParameters = "-Port.forceOverwrite=true --info analyze -i <input-dir> -o <output-dir>"
+                }
+            }
+        }
+    }
 }
 
 testing {
