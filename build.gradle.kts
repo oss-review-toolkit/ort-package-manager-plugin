@@ -26,6 +26,11 @@ import org.jetbrains.gradle.ext.settings
 import org.jetbrains.kotlin.gradle.plugin.KotlinCompilation
 
 plugins {
+    // Apply core plugins.
+    distribution
+    `java-library`
+
+    // Apply third-party plugins.
     alias(libs.plugins.ideaExt)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.shadow)
@@ -36,8 +41,8 @@ repositories {
 }
 
 configurations {
-    // Create a scope that contains the minimum dependencies to run the plugin with ORT.
-    dependencyScope("analyzerCliClasspath")
+    // Create an extended configuration with the analyzer CLI to run the plugin from an IDEA run configuration.
+    resolvable("analyzerCliClasspath").get().extendsFrom(project.configurations["runtimeClasspath"])
 }
 
 val shadowJar = tasks.named<ShadowJar>("shadowJar") {
@@ -45,7 +50,7 @@ val shadowJar = tasks.named<ShadowJar>("shadowJar") {
 
     // Extend the "runtimeClasspath", which is the configuration that "Shadow" uses by default, with the classpath for
     // the ORT main CLI and the analyzer command.
-    project.configurations["runtimeClasspath"].extendsFrom(project.configurations["analyzerCliClasspath"])
+    configurations = listOf(project.configurations["analyzerCliClasspath"])
 
     manifest.attributes["Main-Class"] = "org.ossreviewtoolkit.cli.OrtMainKt"
 }
@@ -65,6 +70,15 @@ idea {
                     programParameters = "-Port.forceOverwrite=true --info analyze -i <input-dir> -o <output-dir>"
                 }
             }
+        }
+    }
+}
+
+distributions {
+    main {
+        contents {
+            from(tasks["jar"])
+            from(configurations["runtimeClasspath"])
         }
     }
 }
@@ -104,8 +118,8 @@ kotlin.target.compilations.apply {
 }
 
 dependencies {
-    api(libs.ortAnalyzer)
-    api(libs.ortModel)
+    compileOnlyApi(libs.ortAnalyzer)
+    compileOnlyApi(libs.ortModel)
 
     implementation(libs.log4jApiKotlin)
 
