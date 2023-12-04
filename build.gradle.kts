@@ -35,7 +35,7 @@ repositories {
     mavenCentral()
 }
 
-configurations{
+configurations {
     // Create a scope that contains the minimum dependencies to run the plugin with ORT.
     dependencyScope("analyzerCliClasspath")
 }
