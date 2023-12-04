@@ -44,7 +44,7 @@ val shadowJar = tasks.named<ShadowJar>("shadowJar") {
     archiveClassifier = "analyzer-cli"
 
     // Extend the "runtimeClasspath", which is the configuration that "Shadow" uses by default, with the classpath for
-    // the ORT main CLI and the analyter command.
+    // the ORT main CLI and the analyzer command.
     project.configurations["runtimeClasspath"].extendsFrom(project.configurations["analyzerCliClasspath"])
 
     manifest.attributes["Main-Class"] = "org.ossreviewtoolkit.cli.OrtMainKt"
