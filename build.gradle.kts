@@ -40,11 +40,6 @@ configurations {
     dependencyScope("analyzerCliClasspath")
 }
 
-dependencies {
-    "analyzerCliClasspath"(libs.ortAnalyzerCommand)
-    "analyzerCliClasspath"(libs.ortCli)
-}
-
 val shadowJar = tasks.named<ShadowJar>("shadowJar") {
     archiveClassifier = "analyzer-cli"
 
@@ -113,6 +108,9 @@ dependencies {
     api(libs.ortModel)
 
     implementation(libs.log4jApiKotlin)
+
+    "analyzerCliClasspath"(libs.ortAnalyzerCommand)
+    "analyzerCliClasspath"(libs.ortCli)
 
     "funTestImplementation"(libs.ortTestUtils)
     "funTestImplementation"(variantOf(libs.ortAnalyzer) { classifier("test-fixtures") })
