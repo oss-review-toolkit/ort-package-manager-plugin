@@ -1,4 +1,5 @@
 [versions]
+detektPlugin = "1.23.4"
 ideaExtPlugin = "1.1.7"
 kotlinPlugin = "1.9.10"
 shadowPlugin = "8.1.1"
@@ -10,11 +11,13 @@ logback = "1.4.11"
 ort = "8.0.0"
 
 [plugins]
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektPlugin" }
 ideaExt = { id = "org.jetbrains.gradle.plugin.idea-ext", version.ref = "ideaExtPlugin" }
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinPlugin" }
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadowPlugin" }
 
 [libraries]
+detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektPlugin" }
 kotestAssertionsCore = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
 kotestRunnerJunit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 log4jApiKotlin = { module = "org.apache.logging.log4j:log4j-api-kotlin", version.ref = "log4jApiKotlin" }
@@ -23,5 +26,6 @@ logbackClassic = { module = "ch.qos.logback:logback-classic", version.ref = "log
 ortAnalyzer = { module = "org.ossreviewtoolkit:analyzer", version.ref = "ort" }
 ortAnalyzerCommand = { module = "org.ossreviewtoolkit.plugins.commands:analyzer-command", version.ref = "ort" }
 ortCli = { module = "org.ossreviewtoolkit:cli", version.ref = "ort" }
+ortDetektRules = { module = "org.ossreviewtoolkit:detekt-rules", version.ref = "ort" }
 ortModel = { module = "org.ossreviewtoolkit:model", version.ref = "ort" }
 ortTestUtils = { module = "org.ossreviewtoolkit.utils:test-utils", version.ref = "ort" }

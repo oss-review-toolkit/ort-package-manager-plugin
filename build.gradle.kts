@@ -31,6 +31,7 @@ plugins {
     `java-library`
 
     // Apply third-party plugins.
+    alias(libs.plugins.detekt)
     alias(libs.plugins.ideaExt)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.shadow)
@@ -121,6 +122,9 @@ dependencies {
     compileOnlyApi(libs.ortAnalyzer)
     compileOnlyApi(libs.ortModel)
 
+    detektPlugins(libs.detektFormatting)
+    detektPlugins(libs.ortDetektRules)
+
     implementation(libs.log4jApiKotlin)
 
     "analyzerCliClasspath"(libs.ortAnalyzerCommand)
@@ -128,4 +132,9 @@ dependencies {
 
     "funTestImplementation"(libs.ortTestUtils)
     "funTestImplementation"(variantOf(libs.ortAnalyzer) { classifier("test-fixtures") })
+}
+
+detekt {
+    config.from(files(".detekt.yml"))
+    buildUponDefaultConfig = true
 }
