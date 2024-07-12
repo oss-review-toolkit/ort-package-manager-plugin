@@ -20,8 +20,7 @@
 package org.ossreviewtoolkit.plugins.packagemanagers.mypackagemanager
 
 import io.kotest.core.spec.style.WordSpec
-import io.kotest.matchers.collections.beEmpty
-import io.kotest.matchers.should
+import io.kotest.matchers.collections.shouldHaveSingleElement
 
 import java.io.File
 
@@ -31,11 +30,11 @@ import org.ossreviewtoolkit.analyzer.resolveSingleProject
 class MyPackageManagerFunTest : WordSpec({
     "Resolving project dependencies" should {
         "return an empty list of issues" {
-            val definitionFile = File("path/to/file").absoluteFile
+            val definitionFile = File("funTest/kotlin/resources/MyPackageManager.DefinitionFile").absoluteFile
 
             val result = create("MyPackageManager").resolveSingleProject(definitionFile)
 
-            result.issues should beEmpty()
+            result.issues shouldHaveSingleElement { it.message == "Not yet implemented." }
         }
     }
 })

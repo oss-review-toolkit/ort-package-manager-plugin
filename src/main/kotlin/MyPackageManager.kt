@@ -21,13 +21,13 @@ package org.ossreviewtoolkit.plugins.packagemanagers.mypackagemanager
 
 import java.io.File
 
-import org.apache.logging.log4j.kotlin.logger
-
 import org.ossreviewtoolkit.analyzer.AbstractPackageManagerFactory
 import org.ossreviewtoolkit.analyzer.PackageManager
+import org.ossreviewtoolkit.model.Project
 import org.ossreviewtoolkit.model.ProjectAnalyzerResult
 import org.ossreviewtoolkit.model.config.AnalyzerConfiguration
 import org.ossreviewtoolkit.model.config.RepositoryConfiguration
+import org.ossreviewtoolkit.model.createAndLogIssue
 
 class MyPackageManager(
     name: String,
@@ -36,7 +36,7 @@ class MyPackageManager(
     repoConfig: RepositoryConfiguration
 ) : PackageManager(name, analysisRoot, analyzerConfig, repoConfig) {
     class Factory : AbstractPackageManagerFactory<MyPackageManager>("MyPackageManager") {
-        override val globsForDefinitionFiles = listOf("MyPackageManagerDefinitionFile")
+        override val globsForDefinitionFiles = listOf("MyPackageManager.DefinitionFile")
 
         override fun create(
             analysisRoot: File,
@@ -46,7 +46,17 @@ class MyPackageManager(
     }
 
     override fun resolveDependencies(definitionFile: File, labels: Map<String, String>): List<ProjectAnalyzerResult> {
-        logger.error { "Not yet implemented." }
-        return emptyList()
+        val issue = createAndLogIssue(
+            source = managerName,
+            message = "Not yet implemented."
+        )
+
+        val result = ProjectAnalyzerResult(
+            project = Project.EMPTY,
+            packages = emptySet(),
+            issues = listOf(issue)
+        )
+
+        return listOf(result)
     }
 }
