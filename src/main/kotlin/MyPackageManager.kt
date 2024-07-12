@@ -19,6 +19,8 @@
 
 package org.ossreviewtoolkit.plugins.packagemanagers.mypackagemanager
 
+import java.io.File
+
 import org.apache.logging.log4j.kotlin.logger
 
 import org.ossreviewtoolkit.analyzer.AbstractPackageManagerFactory
@@ -26,8 +28,6 @@ import org.ossreviewtoolkit.analyzer.PackageManager
 import org.ossreviewtoolkit.model.ProjectAnalyzerResult
 import org.ossreviewtoolkit.model.config.AnalyzerConfiguration
 import org.ossreviewtoolkit.model.config.RepositoryConfiguration
-
-import java.io.File
 
 class MyPackageManager(
     name: String,
