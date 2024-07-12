@@ -1,6 +1,6 @@
 [versions]
 detektPlugin = "1.23.4"
-ideaExtPlugin = "1.1.7"
+ideaExtPlugin = "1.1.8"
 kotlinPlugin = "1.9.10"
 shadowPlugin = "8.1.1"
 
