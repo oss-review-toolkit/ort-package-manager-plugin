@@ -25,8 +25,8 @@ import io.kotest.matchers.should
 
 import java.io.File
 
-import org.ossreviewtoolkit.analyzer.managers.create
-import org.ossreviewtoolkit.analyzer.managers.resolveSingleProject
+import org.ossreviewtoolkit.analyzer.create
+import org.ossreviewtoolkit.analyzer.resolveSingleProject
 
 class MyPackageManagerFunTest : WordSpec({
     "Resolving project dependencies" should {
