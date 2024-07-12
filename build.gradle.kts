@@ -132,6 +132,8 @@ dependencies {
 
     "funTestImplementation"(libs.ortTestUtils)
     "funTestImplementation"(variantOf(libs.ortAnalyzer) { classifier("test-fixtures") })
+
+    "funTestRuntimeOnly"(libs.ortAnalyzer)
 }
 
 detekt {
