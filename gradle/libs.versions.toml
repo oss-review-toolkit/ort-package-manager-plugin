@@ -4,7 +4,7 @@ ideaExtPlugin = "1.1.8"
 kotlinPlugin = "1.9.24"
 shadowPlugin = "8.1.1"
 
-kotest = "5.7.2"
+kotest = "5.9.1"
 log4jApi = "2.23.1"
 log4jApiKotlin = "1.4.0"
 logback = "1.5.6"
