@@ -5,7 +5,7 @@ kotlinPlugin = "2.0.20"
 shadowPlugin = "8.1.1"
 
 kotest = "5.9.1"
-log4jApi = "2.23.1"
+log4jApi = "2.24.0"
 log4jApiKotlin = "1.5.0"
 logback = "1.5.8"
 ort = "31.0.0"
