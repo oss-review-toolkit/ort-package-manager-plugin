@@ -19,8 +19,6 @@ jobs:
       uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@d156388eb19639ec20ade50009f3d199ce1e2808 # v4
-      with:
-        gradle-home-cache-cleanup: true
     - name: Build all classes
       run: ./gradlew classes
   codeql-analysis:
@@ -38,8 +36,6 @@ jobs:
         languages: java
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@d156388eb19639ec20ade50009f3d199ce1e2808 # v4
-      with:
-        gradle-home-cache-cleanup: true
     - name: Build all classes
       run: ./gradlew -Dorg.gradle.jvmargs=-Xmx1g classes
     - name: Perform CodeQL Analysis
@@ -52,8 +48,6 @@ jobs:
       uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@d156388eb19639ec20ade50009f3d199ce1e2808 # v4
-      with:
-        gradle-home-cache-cleanup: true
     - name: Run tests
       run: ./gradlew --scan test funTest
     - name: Create Test Summary
