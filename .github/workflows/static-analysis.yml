@@ -38,7 +38,7 @@ jobs:
     - name: Check for Detekt Issues with type resolution
       run: ./gradlew detektMain detektTest detektFunTest
     - name: Upload SARIF File
-      uses: github/codeql-action/upload-sarif@f779452ac5af1c261dce0346a8f964149f49322b # v3
+      uses: github/codeql-action/upload-sarif@662472033e021d55d94146f66f6058822b0b39fd # v3
       if: always() # Upload even if the previous step failed.
       with:
         sarif_file: build/reports/detekt/detekt.sarif
