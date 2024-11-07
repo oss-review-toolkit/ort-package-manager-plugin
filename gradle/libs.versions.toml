@@ -8,7 +8,7 @@ kotest = "5.9.1"
 log4jApi = "2.24.1"
 log4jApiKotlin = "1.5.0"
 logback = "1.5.12"
-ort = "38.0.0"
+ort = "39.0.0"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektPlugin" }
