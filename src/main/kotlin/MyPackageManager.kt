@@ -34,7 +34,7 @@ class MyPackageManager(
     analysisRoot: File,
     analyzerConfig: AnalyzerConfiguration,
     repoConfig: RepositoryConfiguration
-) : PackageManager(name, analysisRoot, analyzerConfig, repoConfig) {
+) : PackageManager(name, "MyProjectType", analysisRoot, analyzerConfig, repoConfig) {
     class Factory : AbstractPackageManagerFactory<MyPackageManager>("MyPackageManager") {
         override val globsForDefinitionFiles = listOf("MyPackageManager.DefinitionFile")
 
