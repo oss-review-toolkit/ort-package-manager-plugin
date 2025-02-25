@@ -7,7 +7,7 @@ shadowPlugin = "8.3.6"
 kotest = "5.9.1"
 log4jApi = "2.24.3"
 log4jApiKotlin = "1.5.0"
-logback = "1.5.16"
+logback = "1.5.17"
 ort = "52.0.1"
 
 [plugins]
