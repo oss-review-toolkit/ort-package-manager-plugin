@@ -122,12 +122,6 @@ testing {
         }
 
         register<JvmTestSuite>("funTest") {
-            sources {
-                kotlin {
-                    testType = TestSuiteType.FUNCTIONAL_TEST
-                }
-            }
-
             dependencies {
                 implementation(project())
             }
