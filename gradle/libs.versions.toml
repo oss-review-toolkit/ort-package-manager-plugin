@@ -2,18 +2,20 @@
 detektPlugin = "1.23.8"
 ideaExtPlugin = "1.1.10"
 kotlinPlugin = "2.1.10"
+kspPlugin = "2.1.10-1.0.31"
 shadowPlugin = "8.3.6"
 
 kotest = "5.9.1"
 log4jApi = "2.24.3"
 log4jApiKotlin = "1.5.0"
 logback = "1.5.17"
-ort = "53.0.0"
+ort = "54.0.0"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektPlugin" }
 ideaExt = { id = "org.jetbrains.gradle.plugin.idea-ext", version.ref = "ideaExtPlugin" }
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinPlugin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "kspPlugin" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadowPlugin" }
 
 [libraries]
@@ -28,4 +30,5 @@ ortAnalyzerCommand = { module = "org.ossreviewtoolkit.plugins.commands:analyzer-
 ortCli = { module = "org.ossreviewtoolkit:cli", version.ref = "ort" }
 ortDetektRules = { module = "org.ossreviewtoolkit:detekt-rules", version.ref = "ort" }
 ortModel = { module = "org.ossreviewtoolkit:model", version.ref = "ort" }
+ortPluginCompiler = { module = "org.ossreviewtoolkit.plugins:compiler", version.ref = "ort" }
 ortTestUtils = { module = "org.ossreviewtoolkit.utils:test-utils", version.ref = "ort" }

@@ -40,6 +40,7 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.ideaExt)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.shadow)
 }
 
@@ -144,6 +145,9 @@ dependencies {
 
     implementation(libs.log4jApiKotlin)
 
+    ksp(libs.ortAnalyzer)
+    ksp(libs.ortPluginCompiler)
+
     "analyzerCliClasspath"(libs.ortAnalyzerCommand)
     "analyzerCliClasspath"(libs.ortCli)
 
@@ -160,6 +164,10 @@ detekt {
 
 tasks.withType<Detekt>().configureEach {
      jvmTarget = maxKotlinJvmTarget.target
+
+    exclude {
+        "/build/generated/" in it.file.absoluteFile.invariantSeparatorsPath
+    }
 
     reports {
         xml.required.set(false)
