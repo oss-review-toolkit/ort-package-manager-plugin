@@ -21,35 +21,34 @@ package org.ossreviewtoolkit.plugins.packagemanagers.mypackagemanager
 
 import java.io.File
 
-import org.ossreviewtoolkit.analyzer.AbstractPackageManagerFactory
 import org.ossreviewtoolkit.analyzer.PackageManager
+import org.ossreviewtoolkit.analyzer.PackageManagerFactory
 import org.ossreviewtoolkit.model.Project
 import org.ossreviewtoolkit.model.ProjectAnalyzerResult
 import org.ossreviewtoolkit.model.config.AnalyzerConfiguration
-import org.ossreviewtoolkit.model.config.RepositoryConfiguration
+import org.ossreviewtoolkit.model.config.Excludes
 import org.ossreviewtoolkit.model.createAndLogIssue
+import org.ossreviewtoolkit.plugins.api.OrtPlugin
+import org.ossreviewtoolkit.plugins.api.PluginDescriptor
 
+@OrtPlugin(
+    displayName = "My Package Manager",
+    description = "A template for implementing an ORT package manager plugin.",
+    factory = PackageManagerFactory::class
+)
 class MyPackageManager(
-    name: String,
-    analysisRoot: File,
-    analyzerConfig: AnalyzerConfiguration,
-    repoConfig: RepositoryConfiguration
-) : PackageManager(name, "MyProjectType", analysisRoot, analyzerConfig, repoConfig) {
-    class Factory : AbstractPackageManagerFactory<MyPackageManager>("MyPackageManager") {
-        override val globsForDefinitionFiles = listOf("MyPackageManager.DefinitionFile")
+    override val descriptor: PluginDescriptor = MyPackageManagerFactory.descriptor
+) : PackageManager("MyProjectType") {
+    override val globsForDefinitionFiles = listOf("MyPackageManager.DefinitionFile")
 
-        override fun create(
-            analysisRoot: File,
-            analyzerConfig: AnalyzerConfiguration,
-            repoConfig: RepositoryConfiguration
-        ) = MyPackageManager(type, analysisRoot, analyzerConfig, repoConfig)
-    }
-
-    override fun resolveDependencies(definitionFile: File, labels: Map<String, String>): List<ProjectAnalyzerResult> {
-        val issue = createAndLogIssue(
-            source = managerName,
-            message = "Not yet implemented."
-        )
+    override fun resolveDependencies(
+        analysisRoot: File,
+        definitionFile: File,
+        excludes: Excludes,
+        analyzerConfig: AnalyzerConfiguration,
+        labels: Map<String, String>
+    ): List<ProjectAnalyzerResult> {
+        val issue = createAndLogIssue("Not yet implemented.")
 
         val result = ProjectAnalyzerResult(
             project = Project.EMPTY,

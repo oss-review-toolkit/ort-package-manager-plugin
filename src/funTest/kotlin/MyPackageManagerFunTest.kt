@@ -24,7 +24,6 @@ import io.kotest.matchers.collections.shouldHaveSingleElement
 
 import java.io.File
 
-import org.ossreviewtoolkit.analyzer.create
 import org.ossreviewtoolkit.analyzer.resolveSingleProject
 
 class MyPackageManagerFunTest : WordSpec({
@@ -32,7 +31,7 @@ class MyPackageManagerFunTest : WordSpec({
         "return an empty list of issues" {
             val definitionFile = File("funTest/kotlin/resources/MyPackageManager.DefinitionFile").absoluteFile
 
-            val result = create("MyPackageManager").resolveSingleProject(definitionFile)
+            val result = MyPackageManagerFactory.create().resolveSingleProject(definitionFile)
 
             result.issues shouldHaveSingleElement { it.message == "Not yet implemented." }
         }
