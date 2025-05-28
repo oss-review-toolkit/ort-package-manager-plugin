@@ -18,7 +18,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244 # v4
+      uses: gradle/actions/setup-gradle@8379f6a1328ee0e06e2bb424dadb7b159856a326 # v4
     - name: Build all classes
       run: ./gradlew classes
   codeql-analysis:
@@ -35,7 +35,7 @@ jobs:
       with:
         languages: java
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244 # v4
+      uses: gradle/actions/setup-gradle@8379f6a1328ee0e06e2bb424dadb7b159856a326 # v4
     - name: Build all classes
       run: ./gradlew -Dorg.gradle.jvmargs=-Xmx1g classes
     - name: Perform CodeQL Analysis
@@ -47,7 +47,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244 # v4
+      uses: gradle/actions/setup-gradle@8379f6a1328ee0e06e2bb424dadb7b159856a326 # v4
     - name: Run tests
       run: ./gradlew --scan test funTest
     - name: Create Test Summary
