@@ -6,7 +6,7 @@ kspPlugin = "2.1.21-2.0.2"
 shadowPlugin = "8.3.6"
 
 kotest = "5.9.1"
-log4jApi = "2.24.3"
+log4jApi = "2.25.0"
 log4jApiKotlin = "1.5.0"
 logback = "1.5.18"
 ort = "61.0.0"
