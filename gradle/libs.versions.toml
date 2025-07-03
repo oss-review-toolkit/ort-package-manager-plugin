@@ -9,7 +9,6 @@ kotest = "5.9.1"
 log4jApi = "2.25.0"
 log4jApiKotlin = "1.5.0"
 logback = "1.5.18"
-ort = "62.0.0"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektPlugin" }
@@ -25,10 +24,3 @@ kotestRunnerJunit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = 
 log4jApiKotlin = { module = "org.apache.logging.log4j:log4j-api-kotlin", version.ref = "log4jApiKotlin" }
 log4jApiToSlf4j = { module = "org.apache.logging.log4j:log4j-to-slf4j", version.ref = "log4jApi" }
 logbackClassic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
-ortAnalyzer = { module = "org.ossreviewtoolkit:analyzer", version.ref = "ort" }
-ortAnalyzerCommand = { module = "org.ossreviewtoolkit.plugins.commands:analyzer-command", version.ref = "ort" }
-ortCli = { module = "org.ossreviewtoolkit:cli", version.ref = "ort" }
-ortDetektRules = { module = "org.ossreviewtoolkit:detekt-rules", version.ref = "ort" }
-ortModel = { module = "org.ossreviewtoolkit:model", version.ref = "ort" }
-ortPluginCompiler = { module = "org.ossreviewtoolkit.plugins:compiler", version.ref = "ort" }
-ortTestUtils = { module = "org.ossreviewtoolkit.utils:test-utils", version.ref = "ort" }
