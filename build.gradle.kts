@@ -137,24 +137,24 @@ kotlin.target.compilations.apply {
 }
 
 dependencies {
-    compileOnlyApi(libs.ortAnalyzer)
-    compileOnlyApi(libs.ortModel)
+    compileOnlyApi(ortLibs.analyzer)
+    compileOnlyApi(ortLibs.model)
 
     detektPlugins(libs.detektFormatting)
-    detektPlugins(libs.ortDetektRules)
+    detektPlugins(ortLibs.detektRules)
 
     implementation(libs.log4jApiKotlin)
 
-    ksp(libs.ortAnalyzer)
-    ksp(libs.ortPluginCompiler)
+    ksp(ortLibs.analyzer)
+    ksp(ortLibs.ortPlugins.compiler)
 
-    "analyzerCliClasspath"(libs.ortAnalyzerCommand)
-    "analyzerCliClasspath"(libs.ortCli)
+    "analyzerCliClasspath"(ortLibs.ortPlugins.commands.analyzer)
+    "analyzerCliClasspath"(ortLibs.cli)
 
-    "funTestImplementation"(libs.ortTestUtils)
-    "funTestImplementation"(variantOf(libs.ortAnalyzer) { classifier("test-fixtures") })
+    "funTestImplementation"(ortLibs.utils.test)
+    "funTestImplementation"(variantOf(ortLibs.analyzer) { classifier("test-fixtures") })
 
-    "funTestRuntimeOnly"(libs.ortAnalyzer)
+    "funTestRuntimeOnly"(ortLibs.analyzer)
 }
 
 detekt {
