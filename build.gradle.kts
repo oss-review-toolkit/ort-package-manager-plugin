@@ -46,6 +46,16 @@ plugins {
 
 repositories {
     mavenCentral()
+
+    exclusiveContent {
+        forRepository {
+            maven("https://repo.eclipse.org/content/groups/releases")
+        }
+
+        filter {
+            includeGroup("org.eclipse.jgit")
+        }
+    }
 }
 
 configurations {
