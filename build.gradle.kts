@@ -19,7 +19,7 @@
 
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
-import io.gitlab.arturbosch.detekt.Detekt
+import dev.detekt.gradle.Detekt
 
 import org.jetbrains.gradle.ext.GradleTask
 import org.jetbrains.gradle.ext.JarApplication
@@ -180,9 +180,6 @@ tasks.withType<Detekt>().configureEach {
     }
 
     reports {
-        xml.required.set(false)
-        html.required.set(false)
-        txt.required.set(false)
-        sarif.required.set(true)
+        sarif.required = true
     }
 }
