@@ -1,4 +1,4 @@
-formatting:
+ktlint:
   ImportOrdering:
     active: false
 

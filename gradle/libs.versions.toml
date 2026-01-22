@@ -1,5 +1,5 @@
 [versions]
-detektPlugin = "1.23.8"
+detektPlugin = "2.0.0-alpha.1"
 ideaExtPlugin = "1.3"
 kotlinPlugin = "2.2.21"
 kspPlugin = "2.3.4"
@@ -11,14 +11,14 @@ log4jApiKotlin = "1.5.0"
 logback = "1.5.25"
 
 [plugins]
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektPlugin" }
+detekt = { id = "dev.detekt", version.ref = "detektPlugin" }
 ideaExt = { id = "org.jetbrains.gradle.plugin.idea-ext", version.ref = "ideaExtPlugin" }
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinPlugin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspPlugin" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadowPlugin" }
 
 [libraries]
-detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektPlugin" }
+detektFormatting = { module = "dev.detekt:detekt-rules-ktlint-wrapper", version.ref = "detektPlugin" }
 kotestAssertionsCore = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
 kotestRunnerJunit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 log4jApiKotlin = { module = "org.apache.logging.log4j:log4j-api-kotlin", version.ref = "log4jApiKotlin" }
