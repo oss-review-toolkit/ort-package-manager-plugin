@@ -1,6 +1,14 @@
 ktlint:
+  ClassSignature:
+    active: false
   ImportOrdering:
     active: false
+  TrailingCommaOnCallSite:
+    active: true
+    useTrailingCommaOnCallSite: false
+  TrailingCommaOnDeclarationSite:
+    active: true
+    useTrailingCommaOnDeclarationSite: false
 
 naming:
   InvalidPackageDeclaration:
