@@ -34,6 +34,7 @@ jobs:
       uses: github/codeql-action/init@45cbd0c69e560cd9e7cd7f8c32362050c9b7ded2 # v4.32.2
       with:
         languages: java
+        tools: nightly
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@f29f5a9d7b09a7c6b29859002d29d24e1674c884 # v5.0.1
     - name: Build all classes
