@@ -2,7 +2,7 @@
 detektPlugin = "2.0.0-alpha.2"
 ideaExtPlugin = "1.4"
 kotlinPlugin = "2.3.10"
-kspPlugin = "2.3.5"
+kspPlugin = "2.3.6"
 shadowPlugin = "9.3.1"
 
 kotest = "6.1.3"
