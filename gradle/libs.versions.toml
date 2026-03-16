@@ -1,7 +1,7 @@
 [versions]
 detektPlugin = "2.0.0-alpha.2"
 ideaExtPlugin = "1.4.1"
-kotlinPlugin = "2.3.10"
+kotlinPlugin = "2.3.20"
 kspPlugin = "2.3.6"
 shadowPlugin = "9.4.0"
 
