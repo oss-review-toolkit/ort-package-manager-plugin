@@ -35,7 +35,7 @@ import org.ossreviewtoolkit.plugins.api.PluginDescriptor
 @OrtPlugin(
     id = "MyPackageManager",
     displayName = "My Package Manager",
-    description = "A template for implementing an ORT package manager plugin.",
+    summary = "A template for implementing an ORT package manager plugin.",
     factory = PackageManagerFactory::class
 )
 class MyPackageManager(
