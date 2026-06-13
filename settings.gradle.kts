@@ -26,7 +26,11 @@ dependencyResolutionManagement {
 
     versionCatalogs {
        create("ortLibs") {
-           from("org.ossreviewtoolkit:version-catalog:88.0.0")
+           from("org.ossreviewtoolkit:version-catalog:89.0.0")
        }
     }
+}
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention").version("1.0.0")
 }
