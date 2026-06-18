@@ -5,7 +5,7 @@ kotlinPlugin = "2.4.0"
 kspPlugin = "2.3.9"
 shadowPlugin = "9.4.2"
 
-kotest = "6.2.0"
+kotest = "6.2.1"
 log4jApi = "2.26.0"
 log4jApiKotlin = "1.5.0"
 logback = "1.5.34"
