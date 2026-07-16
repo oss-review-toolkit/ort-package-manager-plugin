@@ -3,7 +3,7 @@ detektPlugin = "2.0.0-alpha.5"
 ideaExtPlugin = "1.4.1"
 kotlinPlugin = "2.4.10"
 kspPlugin = "2.3.10"
-shadowPlugin = "9.5.1"
+shadowPlugin = "9.6.0"
 
 kotest = "6.2.2"
 log4jApi = "2.26.1"
