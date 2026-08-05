@@ -1,5 +1,5 @@
 [versions]
-detektPlugin = "2.0.0-alpha.5"
+detektPlugin = "2.0.0-alpha.6"
 ideaExtPlugin = "1.4.1"
 kotlinPlugin = "2.4.10"
 kspPlugin = "2.3.11"
