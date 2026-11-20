@@ -8,7 +8,7 @@ shadowPlugin = "9.6.1"
 kotest = "6.2.7"
 log4jApi = "2.26.1"
 log4jApiKotlin = "1.5.0"
-logback = "1.6.7"
+logback = "1.6.8"
 
 [plugins]
 detekt = { id = "dev.detekt", version.ref = "detektPlugin" }
